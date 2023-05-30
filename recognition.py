@@ -26,9 +26,9 @@ rek_client = boto3.client(
     # Tener en cuenta que la palabra se escribe con K, asi en como lo reconoce AWS
     'rekognition', # Nombre del servicio a conectar
     
-    aws_access_key_id = 'AKIAT25I2RJMRNHOOIMV', # AWS Acces key ID
+    aws_access_key_id = '················', # AWS Acces key ID
     
-    aws_secret_access_key = 'irJrwSFQKV6UwOo9oMdukLDQcpsT3ABOUuoMH0G5',
+    aws_secret_access_key = '···························',
     
     # Es la region que tenemos dentro de AWS
     region_name = 'us-east-1'
