@@ -17,7 +17,7 @@ s3_client = boto3.client(
 
 # -----  Colection ID
 # Le podemos poner el nombre que querramos
-# Este va a ser el nombre del data ste que se crea en el recognition service
+# Este va a ser el nombre del data ste que se crea en el recognitioclearn service
 # Va a tomar la information de los folderes de authorized users y crear un data set para compararlo con caras reales
 # Este ID tambien se lo paso el e script de recognition
 collectionId= 'faceRecognitionAuth'
@@ -46,15 +46,15 @@ bucket = 'auth-users-camping'
 #
 all_objects = s3_client.list_objects(Bucket =bucket)
 
-#------------- CHEKC IF COLLECTION EXISTS --------------------------------
+#------------- CHEKC IF COLLECTION EXISTS AND REMOVE IT--------------------------------
 
 # Vamos a revisar si los usuarios han sido agregados a alguna coleccion
 # Si existe una colection borramos y creamos una nueva
 # Resulve el problema si queremos borrar o agregar usuarios 
 list_response = rek_client.list_collections(MaxResults = 2)
-
 if collectionId in list_response['CollectionIds']:
-    
+    # Entonces aqui borramos la coleccion si existe
+    # Es como ressetearse
     rek_client.delete_collection(CollectionId = collectionId)
     
 
@@ -63,7 +63,7 @@ if collectionId in list_response['CollectionIds']:
 rek_client.create_collection(CollectionId = collectionId)
 
 # Aqui hago un for loop para ir por los objetos
-# Agrega las imagenens en el bucket a la cleccion y usa el folder con el nombre del usuario
+# Agrega todas las imagenens en el bucket a la cleccion y usa el folder con el nombre del usuario
 # El nombre del usuario es el que agregamos cuando creamos el folder
 
 for content in all_objects['Contents']:
@@ -86,10 +86,15 @@ for content in all_objects['Contents']:
             
             # Esta linea lo que hace es que revise una cara al mismo tiempo
             # Si hay multiples imagenens en la imagen solo busca una
+            # Entonces se enfoca en una sola cara al mismo tiempo
             MaxFaces = 1,
+            # Esto es para hacer un filtrado de la imagen
             QualityFilter = 'AUTO',
-            
-            DetectionAttributes = ['DEFAULT']          
+            # 
+            #DetectionAttributes = ['DEFAULT']   
+            DetectionAttributes = ['ALL'] 
         )
-        
+
+        # Los de arriba lo que hizo fue agregar todos los atributos a mi coleccion
+        # Aqui me muestra cada imagen desdtro de cada bucket.
         print('FaceId:', index_response['FaceRecords'][0]['Face']['FaceId'])
