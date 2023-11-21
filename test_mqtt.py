@@ -8,7 +8,7 @@ current_datetime = datetime.datetime.now()
 # Format the date and time as a string
 formatted_datetime = current_datetime.strftime('%Y-%m-%d %H:%M:%S')
 
-broker_address = "50.16.189.156"
+broker_address = "50.X6.1X9.XXX"
 port = 1883
 topic = "new_auth/Rp3/piCamera"
 username = "mqtt"
