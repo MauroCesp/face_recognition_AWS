@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-broker_address = "50.16.189.156"
+broker_address = "X0.16.X9.XXX"
 port = 1883
 topic = "new_auth/Rp3/piCamera"
 username = "mqtt"
