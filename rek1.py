@@ -16,9 +16,9 @@ p.start_preview()
 collectionId = 'faceRecognitionAuth'
 rek_client = boto3.client(
     'rekognition',
-    aws_access_key_id = 'AKIAT25I2RJM6VBQTCOU', # AWS Acces key ID',
+    aws_access_key_id = '', # AWS Acces key ID',
     
-    aws_secret_access_key = 'pgcuIUoU9q8aZhrMdrfYwBpnSqIl6wVD6zjHxNjj',
+    aws_secret_access_key = 'j',
     region_name='us-east-1'
 )
 
