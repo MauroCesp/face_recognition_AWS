@@ -18,7 +18,7 @@ message = {
     'confidence': args.confidence
 }
 
-broker_address = "50.16.189.156"
+broker_address = "XX.16.1X9.XXX"
 port = 1883
 topic = "new_auth/Rp3/piCamera"
 username = "mqtt"
