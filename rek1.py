@@ -57,7 +57,7 @@ def capture_and_process_image():
             print(response)
 
 if __name__ == '__main__':
-    broker_address = "50.16.189.156"
+    broker_address = "XX.16.1X9.1XX"
     port = 1883
     topic = "new_auth/Rp3/piCamera"
     username = "mqtt"
